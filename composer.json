@@ -1,0 +1,34 @@
+{
+  "name": "samhernandez/craft-db-paths",
+  "description": "Fix failed Craft backups and restores with full paths to psql, mysql, and mysqldump executables.",
+  "version": "1.0",
+  "type": "craft-module",
+  "keywords": [
+    "backup",
+    "craft",
+    "mysql",
+    "mysqldump",
+    "psql"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sam Hernandez",
+      "homepage": "https://github.com/samhernandez"
+    }
+  ],
+  "support": {
+    "email": "sam@silvertoncreative.com",
+    "issues": "https://github.com/samhernandez/craft-db-paths/issues",
+    "source": "https://github.com/samhernandez/craft-db-paths",
+    "docs": "https://github.com/samhernandez/craft-db-paths"
+  },
+  "require": {
+    "craftcms/cms": "^3.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "samhernandez\\craftdbpaths\\": "src/"
+    }
+  }
+}
