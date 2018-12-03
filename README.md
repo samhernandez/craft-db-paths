@@ -30,7 +30,7 @@ This is a module for Craft CMS, not a plugin available in Craft's Plugin Store. 
 Run the following command in the root of your project.
 
 ```bash
-composer require samhernanadez/craft-db-paths
+composer require samhernandez/craft-db-paths
 ```
 
 Open `/config/app.php`, add the `CraftDbPaths` class as a module, and bootstrap it. Example:
