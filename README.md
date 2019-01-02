@@ -6,17 +6,16 @@ Skip to [the usage instructions](##usage) if you already know the story.
 
 Craft relies by default on the `mysqldump` and `mysql` executables to backup and restore databases. The default backup command looks like this:
 
-```php
-// file: /config/general.php
-'backupCommand' => 'mysqldump […] {database} > {file}'
+```
+mysqldump […options…] {database} > {file}'
 ```
 
  The problem is that, while `mysqldump` might be available in the system, PHP running under a web request doesn’t know where to find it because it’s not in any directories specified in the `PATH` environmental variable. This is true when running locally with MAMP. It’s also true sometimes on EC2 instances when running MariaDB on RDS.
 
- For this reason, Craft provides two configuration variables for you: [`backupCommand`](https://docs.craftcms.com/v3/config/config-settings.html#backupcommand) and [`restoreCommand`](https://docs.craftcms.com/v3/config/config-settings.html#restorecommand). You can write your own command with the full path to the `mysqldump` executable. For MAMP it might be something like this:
+For this reason, Craft provides two configuration variables for you: [`backupCommand`](https://docs.craftcms.com/v3/config/config-settings.html#backupcommand) and [`restoreCommand`](https://docs.craftcms.com/v3/config/config-settings.html#restorecommand). You can write your own command with the full path to the `mysqldump` executable. For MAMP it might be something like this:
 
  ```
-/Applications/MAMP/Library/bin/mysqldump […] {database} > {file}
+/Applications/MAMP/Library/bin/mysqldump […options…] {database} > {file}
  ```
 
 The thing is, Craft’s default dump command is really nice. It excludes unnecessary session, cache, and asset data. You can see how it’s built for MySQL in the [Schema::defaultBackupCommand()](https://github.com/craftcms/cms/blob/master/src/db/mysql/Schema.php#L146-L190) method. What if you could just replace `mysqldump` with its full path and not have to roll your own command? That's what this module is for.
