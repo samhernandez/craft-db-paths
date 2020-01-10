@@ -1,7 +1,7 @@
 {
   "name": "samhernandez/craft-db-paths",
   "description": "Fix failed Craft backups and restores with full paths to psql, mysql, and mysqldump executables.",
-  "version": "1.0",
+  "version": "1.0.2",
   "type": "craft-module",
   "keywords": [
     "backup",

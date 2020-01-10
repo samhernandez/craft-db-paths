@@ -18,6 +18,16 @@ class CraftDbPaths extends \yii\base\Module
      */
     public function init()
     {
+        // Set a @modules alias pointed to the modules/ directory
+        Craft::setAlias('@samhernandez/craftdbpaths', __DIR__);
+
+        // Set the controllerNamespace based on whether this is a console or web request
+        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
+            $this->controllerNamespace = 'samhernandez\\craftdbpaths\\console\\controllers';
+        } else {
+            $this->controllerNamespace = 'samhernandez\\craftdbpaths\\controllers';
+        }
+
         if (Craft::$app->getRequest()->isCpRequest) {
             $this->initBackupCmd();
             $this->initRestoreCmd();
